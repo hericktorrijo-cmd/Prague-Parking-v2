@@ -1,0 +1,25 @@
+﻿2026-10-26
+Börjar få till logiken, har fått till klasserna Vehicle och car och MC rätt bra, de flesta metoderna ligger i ParkingGarage och ParkingSpot
+För imorgon behöver jag fixa en metod med removeVehicle. Samt fixa en ny klass som ska skapa menyn. Börjar ta lite fart nu
+
+2026-10-27 kl. 08:00
+Nu har vi gjort ParkVehicle metoden, börjar removeVehicle, båda dessa kommer att ligga i ParkingGarage då syftet är att ParkingGarage ska 
+ha kontroll över de "fysiska" metoderna. ParkingSpot ska äga allt som är inne i själva spot. Har en design på ett fysiskt papper, ska försöka
+göra samma karta här i denna projekt.
+
+2026-10-28 kl. 12:00
+Nu är även SearchVehicle klar, har även lagt till tidsstämpel på metoderna removeVehicle och ParkVehicle så att vi senare lätt kan beräkna priset.
+Meny är nästa steg, jag vill bli klar med logiken idag så att jag kan börja använda mig av Spectre Console snart men vill ha logiken klar först.
+Sedan i slutet börjar vi jobba med Json filerna. 
+
+
+2026-10-28 kl. 15:00
+Nu är menyvalen 1-4 klara, nästa steg är att göra en till menyval med att visa p-huset, sedan tror jag att jag är rätt klar med menyn så efter det
+blir det att koppla filer som kommer vara huvudvärk för jag känner att jag inte kan det :( 
+
+2026-10-28 kl. 22:15
+NU är menyn klar tycker jag, många timmar på att få till den men sjukt kul, ser riktigt bra ut också! Näst blir filhantering, blir svårt men spännande. 
+
+2026-10-29 kl. 08:30
+Kom på att man just nu kan parkera en och samma fordon flera gånger, måste fixa det under dagen. Har ingen validering just nu heller, men tror
+inte jag ska ha det, så just nu kan man skriva att man har t.ex. en MC med regnummer "1" eller "Ö". Även klassdiagram skapat.

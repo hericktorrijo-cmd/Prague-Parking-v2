@@ -4,14 +4,14 @@ using System.Text;
 
 namespace Prague_Parking_v2
 {
-    internal class Motorcyle: Vehicle
+    public class Motorcycle: Vehicle
     {
 
 
 
 
 
-        public Motorcyle(int size)
+        public Motorcycle()
         {
             Size = 2;
         }

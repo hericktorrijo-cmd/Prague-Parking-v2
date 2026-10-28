@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Prague_Parking_v2
 {
-    internal class Car: Vehicle
+    public class Car: Vehicle
     {
 
         
@@ -14,7 +14,7 @@ namespace Prague_Parking_v2
 
         public Car()
         {
-            Size = 4;
+        Size = 4;
         }
     }
 }
