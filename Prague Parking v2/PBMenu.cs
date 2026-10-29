@@ -2,26 +2,41 @@
 using System.Collections.Generic;
 using System.Text;
 using Spectre.Console;
+using PragueParking.Data;
 
 namespace Prague_Parking_v2
 {
     public class Menu
     {
         private ParkingGarage _garage;
+        private FileManager _fileManager;
 
         public Menu()
         {
-            _garage = new ParkingGarage(100);
+            _fileManager = new FileManager();
 
+            if (File.Exists("garage.json"))
+            {
+                _garage = _fileManager.Load();
+            }
+            else
+            {
+                _garage = new ParkingGarage(100);
+            }
         }
         // Meny
         public void Start()
         {
             while(true)
             {
+                Console.WriteLine();
                 AnsiConsole.Write(
-                new FigletText("Prague Parking")
-                .Color(Color.DeepPink1));
+                    new Rule("[deeppink1 bold]Prague Parking[/]"));
+                Console.WriteLine();
+
+                AnsiConsole.MarkupLine("[grey]Parking Management System[/]");
+
+                AnsiConsole.WriteLine();
 
                 var choice = AnsiConsole.Prompt(
                     new SelectionPrompt<string>()
@@ -31,6 +46,7 @@ namespace Prague_Parking_v2
                         "Ta bort fordon",
                         "Sök fordon",
                         "Visa P-hus",
+                        "Spara",
                         "Avsluta"));
 
                 switch(choice)
@@ -50,7 +66,10 @@ namespace Prague_Parking_v2
                     case "Visa P-hus":
                         ShowParkingMap();
                         break;
-
+                    case "Spara":
+                        _fileManager.Save(_garage);
+                        AnsiConsole.MarkupLine("[green]✓ Garage sparat[/]");
+                        break;
                     case "Avsluta":
                         return;
                 }
@@ -88,7 +107,8 @@ namespace Prague_Parking_v2
 
             if(parkingSpot != null)
             {
-                AnsiConsole.MarkupLine($"[green bold]Fordonet med registreringsnummer {regNumber} har parkerats på plats {parkingSpot.SpotNumber}[/]");
+                _fileManager.Save(_garage);
+                AnsiConsole.MarkupLine($"[green bold]✓ Fordonet med registreringsnummer {regNumber} har parkerats på plats {parkingSpot.SpotNumber}[/]");
             }
             else
             {
@@ -106,7 +126,8 @@ namespace Prague_Parking_v2
 
             if(removedVehicle != null)
             {
-                AnsiConsole.MarkupLine($"[green bold]Fordon med regristeringsnummer {regNumber} har tagits bort.[/]");
+                _fileManager.Save(_garage);
+                AnsiConsole.MarkupLine($"[green bold]✓ Fordon med regristeringsnummer {regNumber} har tagits bort.[/]");
             }
             else
             {

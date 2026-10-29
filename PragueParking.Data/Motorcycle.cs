@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Prague_Parking_v2
+namespace PragueParking.Data
 {
     public class Motorcycle: Vehicle
     {
@@ -13,6 +13,7 @@ namespace Prague_Parking_v2
 
         public Motorcycle()
         {
+            VehicleType = "Motorcycle";
             Size = 2;
         }
     }

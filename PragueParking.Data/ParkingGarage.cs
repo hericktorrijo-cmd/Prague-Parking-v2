@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Prague_Parking_v2
+namespace PragueParking.Data
 {
     public class ParkingGarage
     {
-        public List<ParkingSpot> ParkingSpots {  get; private set; }
+        public List<ParkingSpot> ParkingSpots {  get; set; }
 
         public ParkingGarage(int numberOfSpots)
         {
@@ -16,6 +16,11 @@ namespace Prague_Parking_v2
             {
                 ParkingSpots.Add(new ParkingSpot(4, i));
             }
+        }
+
+        public ParkingGarage()
+        {
+            ParkingSpots = new List<ParkingSpot>();
         }
 
         //Parkera fordon metod

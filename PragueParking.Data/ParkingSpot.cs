@@ -2,20 +2,25 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Prague_Parking_v2
+namespace PragueParking.Data
 {
     public class ParkingSpot
     {
         public int SpotNumber { get; set; }
-        public int Size {  get; private set; }
+        public int Size {  get; set; }
 
-        public List<Vehicle> Vehicles { get; private set; }
+        public List<Vehicle> Vehicles { get; set; }
 
         public ParkingSpot(int size, int spotNumber)
         {
             Size = size;
             SpotNumber = spotNumber;
 
+            Vehicles = new List<Vehicle>();
+        }
+
+        public ParkingSpot()
+        {
             Vehicles = new List<Vehicle>();
         }
 

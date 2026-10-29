@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Prague_Parking_v2
+namespace PragueParking.Data
 {
     public class Car: Vehicle
     {
@@ -14,7 +14,8 @@ namespace Prague_Parking_v2
 
         public Car()
         {
-        Size = 4;
+            VehicleType = "Car";
+            Size = 4;
         }
     }
 }

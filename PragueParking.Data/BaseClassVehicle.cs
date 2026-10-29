@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
-namespace Prague_Parking_v2
+namespace PragueParking.Data
 {
-    public abstract class Vehicle
+    public class Vehicle
     {
         //Lägger en tom sträng annars varnas jag pga när en barnklass objekt initieras kan den vara tom
-        private string _regNumber = "";     
+        private string _regNumber = "";
+        
 
         public string RegNumber
         {
@@ -16,19 +17,23 @@ namespace Prague_Parking_v2
             set {  _regNumber = value; }
         }
 
-        public DateTime ArrivalTime { get; protected set; }
+        public string VehicleType { get; set; } = "";
 
-        public DateTime DepartureTime { get; protected set;  }
+        public DateTime ArrivalTime { get; set; }
 
-        public int Size { get; protected set; }
+        public DateTime DepartureTime { get; set;  }
+
+        public int Size { get; set; }
+
+        
 
 
-        //Metod så att tiden kan skapas även om egenskapen är protected ifrån en instans(via egenskap) av Vehicle.
+        
         public void SetArrivalTime()  
         {
             ArrivalTime = DateTime.Now; 
         }
-        //Metod så att tiden regristreras när Vehicle tas bort utan att man kan ändra det ifrån en instans(via egenskap) av Vehicle.
+        
         public void SetDepartureTime() 
         {
             DepartureTime = DateTime.Now;
