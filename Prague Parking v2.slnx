@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="Prague Parking v2/Prague Parking v2.csproj" />
   <Project Path="PragueParking.Data/PragueParking.Data.csproj" Id="1c77c288-188f-4ef7-963f-0d8593c00496" />
+  <Project Path="PragueParking.Tests/PragueParking.Tests.csproj" Id="ea6cf036-a7c0-49ac-81d6-db179268aa2e" />
 </Solution>
