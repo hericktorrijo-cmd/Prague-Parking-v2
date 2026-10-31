@@ -8,8 +8,11 @@ namespace Prague_Parking_v2
 {
     public class Menu
     {
+
         private ParkingGarage _garage;
         private FileManager _fileManager;
+
+        private PriceList _priceList;
 
         public Menu()
         {
@@ -21,8 +24,10 @@ namespace Prague_Parking_v2
             }
             else
             {
-                _garage = new ParkingGarage(100);
+                Config config = _fileManager.LoadConfig();
+                _garage = new ParkingGarage(config.NumberOfSpots);
             }
+            _priceList = _fileManager.LoadPrices();
         }
         // Meny
         public void Start()
@@ -123,11 +128,16 @@ namespace Prague_Parking_v2
                 .Trim();
             
             Vehicle? removedVehicle = _garage.RemoveVehicle(regNumber);                 //Frågetecken då vi inte vet om värdet blir null
-
-            if(removedVehicle != null)
+            
+         
+            if (removedVehicle != null)
             {
+                decimal price = CalculatePrice(removedVehicle);
+
                 _fileManager.Save(_garage);
+
                 AnsiConsole.MarkupLine($"[green bold]✓ Fordon med regristeringsnummer {regNumber} har tagits bort.[/]");
+                AnsiConsole.MarkupLine($"[yellow]Kostnad:[/] {price} CZK");
             }
             else
             {
@@ -200,6 +210,28 @@ namespace Prague_Parking_v2
             AnsiConsole.WriteLine();
 
             Console.WriteLine(map);
+        }
+
+        
+        private decimal CalculatePrice(Vehicle vehicle)
+        {
+            TimeSpan parkingTime =
+                vehicle.DepartureTime - vehicle.ArrivalTime;
+
+            if (parkingTime.TotalMinutes <= _priceList.FreeParkingMinutes)
+            {
+                return 0;
+            }
+
+            int hours =
+                (int)Math.Ceiling(parkingTime.TotalHours);
+
+            if (vehicle.VehicleType == "Car")
+            {
+                return hours * _priceList.CarParkingPrice;
+            }
+
+            return hours * _priceList.MotorcycleParkingprice;
         }
 
 

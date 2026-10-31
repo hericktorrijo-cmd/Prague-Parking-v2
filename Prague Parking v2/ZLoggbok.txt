@@ -23,3 +23,11 @@ NU är menyn klar tycker jag, många timmar på att få till den men sjukt kul, 
 2026-10-29 kl. 08:30
 Kom på att man just nu kan parkera en och samma fordon flera gånger, måste fixa det under dagen. Har ingen validering just nu heller, men tror
 inte jag ska ha det, så just nu kan man skriva att man har t.ex. en MC med regnummer "1" eller "Ö". Även klassdiagram skapat.
+
+2026-10-30 kl. 15:00
+Nu är Json klar, även filemanager klassen som gör att detta ska fungera med att ladda och spara. Vilken resa
+
+2026-10-31 kl. 17:00
+
+Nu kan man ha priser, vi kan även ändra garagestorlek via Config.Json. Känner mig nöjd, ska göra en sista koll sen lämnar jag in! Har faktiskt glömt och logga
+igår samt idag, har varit full fukos på projektet. 
